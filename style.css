@@ -1,0 +1,483 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #0d0d0d;
+  --text: #e2e2e2;
+  --dim: #888;
+  --green: #00ff88;
+  --green-dim: #00cc6a;
+  --border: #2a2a2a;
+  --block-bg: #111;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1.7;
+  padding: 2rem 1rem;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* --- Header --- */
+.header {
+  margin-bottom: 3rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.ascii-art {
+  color: var(--green);
+  font-size: 11px;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  white-space: pre;
+}
+
+.prompt-line {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.prompt {
+  color: var(--green);
+  user-select: none;
+}
+
+.name {
+  color: var(--text);
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.tagline {
+  color: var(--dim);
+  font-size: 0.85rem;
+  margin-left: 1.5rem;
+  margin-top: 0.25rem;
+}
+
+.tagline span {
+  color: var(--green-dim);
+}
+
+/* --- Nav --- */
+nav {
+  margin-bottom: 3rem;
+}
+
+nav a {
+  color: var(--dim);
+  text-decoration: none;
+  margin-right: 1.5rem;
+  font-size: 0.85rem;
+  transition: color 0.15s;
+}
+
+nav a:hover {
+  color: var(--green);
+}
+
+nav a::before {
+  content: './';
+  color: var(--border);
+}
+
+/* --- Sections --- */
+section {
+  margin-bottom: 3.5rem;
+}
+
+.section-title {
+  color: var(--green);
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.section-title::before {
+  content: '>';
+  color: var(--green);
+}
+
+.section-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+  margin-left: 0.5rem;
+}
+
+/* --- Header bottom row --- */
+.header-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+}
+
+.loss-graph {
+  font-size: 10px;
+  line-height: 1.4;
+  color: var(--dim);
+  white-space: pre;
+  text-align: left;
+  flex-shrink: 0;
+}
+
+.loss-graph .loss-line { color: var(--green); }
+
+/* --- Skill bars --- */
+.skills-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.bar-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  font-size: 0.78rem;
+}
+
+.bar-name {
+  color: var(--dim);
+  min-width: 9ch;
+}
+
+.bar-fill {
+  color: var(--green);
+  letter-spacing: 0.05em;
+}
+
+/* --- About / whoami --- */
+.whoami-layout {
+  display: flex;
+  gap: 2.5rem;
+  align-items: flex-start;
+}
+
+.transformer-block {
+  font-size: 10px;
+  line-height: 1.55;
+  color: var(--dim);
+  white-space: pre;
+  flex-shrink: 0;
+  border-left: 1px solid var(--border);
+  padding-left: 1.25rem;
+}
+
+.about-text {
+  color: var(--text);
+  line-height: 1.8;
+}
+
+.about-text p + p {
+  margin-top: 0.75rem;
+}
+
+.highlight {
+  color: var(--green);
+}
+
+/* --- Experience --- */
+.entry {
+  margin-bottom: 2rem;
+  padding-left: 1rem;
+  border-left: 2px solid var(--border);
+}
+
+.entry:last-child {
+  margin-bottom: 0;
+}
+
+.entry-header {
+  margin-bottom: 0.4rem;
+}
+
+.entry-title {
+  color: var(--text);
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.entry-org {
+  color: var(--green-dim);
+}
+
+.entry-date {
+  color: var(--dim);
+  font-size: 0.8rem;
+  margin-top: 0.1rem;
+}
+
+.entry-desc {
+  color: var(--dim);
+  font-size: 0.85rem;
+  margin-top: 0.4rem;
+  line-height: 1.6;
+}
+
+.entry-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.6rem;
+}
+
+.tag {
+  font-size: 0.75rem;
+  color: var(--green);
+  border: 1px solid #1a4a30;
+  padding: 0.1rem 0.5rem;
+  border-radius: 2px;
+  background: #0a1f15;
+}
+
+/* --- Projects --- */
+.project {
+  margin-bottom: 1.5rem;
+  padding: var(--block-bg);
+}
+
+.project-line {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 1rem;
+  align-items: baseline;
+  margin-bottom: 0.25rem;
+}
+
+.project-name {
+  color: var(--text);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.project-name:hover {
+  color: var(--green);
+}
+
+.project-dots {
+  border-bottom: 1px dotted var(--border);
+}
+
+.project-stars {
+  color: var(--dim);
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.project-stars::before {
+  content: '★ ';
+  color: var(--green-dim);
+}
+
+.project-desc {
+  color: var(--dim);
+  font-size: 0.82rem;
+}
+
+/* --- Inline ASCII (projects) --- */
+.inline-ascii {
+  font-size: 10px;
+  line-height: 1.5;
+  color: var(--dim);
+  white-space: pre;
+  margin-top: 0.6rem;
+  padding-left: 0.5rem;
+  border-left: 1px solid var(--border);
+}
+
+/* --- Skills --- */
+.skills-ai-layout {
+  display: flex;
+  gap: 2.5rem;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.embed-space {
+  font-size: 10px;
+  line-height: 1.55;
+  color: var(--dim);
+  white-space: pre;
+  flex-shrink: 0;
+  border-left: 1px solid var(--border);
+  padding-left: 1.25rem;
+}
+
+.skills-group {
+  margin-bottom: 1rem;
+}
+
+.skills-label {
+  color: var(--dim);
+  font-size: 0.78rem;
+  margin-bottom: 0.4rem;
+}
+
+.skills-label::before {
+  content: '# ';
+  color: var(--border);
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+/* --- Education --- */
+.edu-entry {
+  margin-bottom: 1.2rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.5rem;
+}
+
+.edu-name {
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
+.edu-degree {
+  color: var(--dim);
+  font-size: 0.82rem;
+}
+
+.edu-year {
+  color: var(--dim);
+  font-size: 0.8rem;
+  text-align: right;
+}
+
+/* --- Contact --- */
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.15s;
+}
+
+.contact-link:hover {
+  color: var(--green);
+}
+
+.contact-link .cl-label {
+  color: var(--dim);
+  min-width: 80px;
+  font-size: 0.8rem;
+}
+
+.contact-link .cl-label::after {
+  content: ':';
+}
+
+/* --- Footer --- */
+footer {
+  margin-top: 4rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  color: var(--dim);
+  font-size: 0.78rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cursor {
+  display: inline-block;
+  width: 0.6em;
+  height: 1em;
+  background: var(--green);
+  vertical-align: text-bottom;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* --- Responsive --- */
+@media (max-width: 600px) {
+  body {
+    font-size: 13px;
+    padding: 1.25rem 0.75rem;
+  }
+  .ascii-art {
+    font-size: 9px;
+  }
+  .header-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .loss-graph {
+    font-size: 9px;
+  }
+  .whoami-layout {
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  .transformer-block {
+    border-left: none;
+    border-top: 1px solid var(--border);
+    padding-left: 0;
+    padding-top: 1rem;
+  }
+  .skills-ai-layout {
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  .embed-space {
+    border-left: none;
+    border-top: 1px solid var(--border);
+    padding-left: 0;
+    padding-top: 1rem;
+  }
+  .project-line {
+    grid-template-columns: 1fr;
+    gap: 0.2rem;
+  }
+  .project-dots {
+    display: none;
+  }
+  footer {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+}
